@@ -1,145 +1,146 @@
-# Humanizer
+# HumanizerBR
 
-A Claude Code skill that removes signs of AI-generated writing from text, making it sound more natural and human.
+Uma skill do Claude Code que remove sinais de escrita gerada por IA em textos em português, tornando-os mais naturais e humanos.
 
-## Installation
+## Instalação
 
-### Recommended (clone directly into Claude Code skills directory)
+### Recomendado (clonar diretamente no diretório de skills do Claude Code)
 
 ```bash
 mkdir -p ~/.claude/skills
-git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
+git clone https://github.com/germanosouza49-beep/humanizerBR.git ~/.claude/skills/humanizerBR
 ```
 
-### Manual install/update (only the skill file)
+### Instalação/atualização manual (apenas o arquivo da skill)
 
-If you already have this repo cloned (or you downloaded `SKILL.md`), copy the skill file into Claude Code’s skills directory:
+Se você já clonou este repositório (ou baixou o `SKILL.md`), copie o arquivo da skill para o diretório de skills do Claude Code:
 
 ```bash
-mkdir -p ~/.claude/skills/humanizer
-cp SKILL.md ~/.claude/skills/humanizer/
+mkdir -p ~/.claude/skills/humanizerBR
+cp SKILL.md ~/.claude/skills/humanizerBR/
 ```
 
-## Usage
+## Uso
 
-In Claude Code, invoke the skill:
-
-```
-/humanizer
-
-[paste your text here]
-```
-
-Or ask Claude to humanize text directly:
+No Claude Code, invoque a skill:
 
 ```
-Please humanize this text: [your text]
+/humanizerBR
+
+[cole seu texto aqui]
 ```
 
-## Overview
+Ou peça ao Claude para humanizar o texto diretamente:
 
-Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) guide, maintained by WikiProject AI Cleanup. This comprehensive guide comes from observations of thousands of instances of AI-generated text.
+```
+Por favor, humanize este texto: [seu texto]
+```
 
-The skill also includes a final "obviously AI generated" audit pass and a second rewrite, to catch lingering AI-isms in the first draft.
+## Visão geral
 
-### Key Insight from Wikipedia
+Baseada no guia ["Signs of AI writing" da Wikipédia](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), mantido pelo WikiProject AI Cleanup, adaptada para textos em português brasileiro. Este guia abrangente vem da observação de milhares de instâncias de texto gerado por IA.
 
-> "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
+A skill também inclui uma passagem final de auditoria "obviamente gerado por IA" e uma segunda reescrita, para capturar padrões de IA remanescentes no primeiro rascunho.
 
-## 25 Patterns Detected (with Before/After Examples)
+### Insight-chave da Wikipédia
 
-### Content Patterns
+> "LLMs usam algoritmos estatísticos para adivinhar o que deve vir a seguir. O resultado tende ao resultado estatisticamente mais provável que se aplica à maior variedade de casos."
 
-| # | Pattern | Before | After |
-|---|---------|--------|-------|
-| 1 | **Significance inflation** | "marking a pivotal moment in the evolution of..." | "was established in 1989 to collect regional statistics" |
-| 2 | **Notability name-dropping** | "cited in NYT, BBC, FT, and The Hindu" | "In a 2024 NYT interview, she argued..." |
-| 3 | **Superficial -ing analyses** | "symbolizing... reflecting... showcasing..." | Remove or expand with actual sources |
-| 4 | **Promotional language** | "nestled within the breathtaking region" | "is a town in the Gonder region" |
-| 5 | **Vague attributions** | "Experts believe it plays a crucial role" | "according to a 2019 survey by..." |
-| 6 | **Formulaic challenges** | "Despite challenges... continues to thrive" | Specific facts about actual challenges |
+## 25 Padrões detectados (com exemplos Antes/Depois)
 
-### Language Patterns
+### Padrões de conteúdo
 
-| # | Pattern | Before | After |
-|---|---------|--------|-------|
-| 7 | **AI vocabulary** | "Additionally... testament... landscape... showcasing" | "also... remain common" |
-| 8 | **Copula avoidance** | "serves as... features... boasts" | "is... has" |
-| 9 | **Negative parallelisms** | "It's not just X, it's Y" | State the point directly |
-| 10 | **Rule of three** | "innovation, inspiration, and insights" | Use natural number of items |
-| 11 | **Synonym cycling** | "protagonist... main character... central figure... hero" | "protagonist" (repeat when clearest) |
-| 12 | **False ranges** | "from the Big Bang to dark matter" | List topics directly |
+| # | Padrão | Antes | Depois |
+|---|--------|-------|--------|
+| 1 | **Inflação de importância** | "marcando um momento crucial na evolução de..." | "foi criado em 1989 para coletar estatísticas regionais" |
+| 2 | **Ostentação de notabilidade** | "citada no NYT, BBC, FT e The Hindu" | "Em entrevista de 2024 ao NYT, ela argumentou..." |
+| 3 | **Análises superficiais com gerúndio** | "destacando... refletindo... evidenciando..." | Remover ou expandir com fontes reais |
+| 4 | **Linguagem promocional** | "aninhada na deslumbrante região de..." | "é uma cidade na região de..." |
+| 5 | **Atribuições vagas** | "Especialistas acreditam que desempenha papel crucial" | "de acordo com levantamento de 2019 da..." |
+| 6 | **Seções formulaicas de desafios** | "Apesar dos desafios... continua a prosperar" | Fatos específicos sobre os desafios reais |
 
-### Style Patterns
+### Padrões de linguagem
 
-| # | Pattern | Before | After |
-|---|---------|--------|-------|
-| 13 | **Em dash overuse** | "institutions—not the people—yet this continues—" | Use commas or periods |
-| 14 | **Boldface overuse** | "**OKRs**, **KPIs**, **BMC**" | "OKRs, KPIs, BMC" |
-| 15 | **Inline-header lists** | "**Performance:** Performance improved" | Convert to prose |
-| 16 | **Title Case Headings** | "Strategic Negotiations And Partnerships" | "Strategic negotiations and partnerships" |
-| 17 | **Emojis** | "🚀 Launch Phase: 💡 Key Insight:" | Remove emojis |
-| 18 | **Curly quotes** | `said “the project”` | `said “the project”` |
-| 25 | **Hyphenated word pairs** | “cross-functional, data-driven, client-facing” | Drop hyphens on common word pairs |
+| # | Padrão | Antes | Depois |
+|---|--------|-------|--------|
+| 7 | **Vocabulário de IA** | "Ademais... testemunho... panorama... evidenciando" | "também... continuam comuns" |
+| 8 | **Evitação de "é"/"são"** | "funciona como... se destaca como... ostenta" | "é... tem" |
+| 9 | **Paralelismos negativos** | "Não se trata apenas de X, mas sim de Y" | Dizer o ponto diretamente |
+| 10 | **Regra de três** | "inovação, inspiração e insights" | Usar o número natural de itens |
+| 11 | **Variação elegante (ciclagem de sinônimos)** | "o protagonista... o personagem principal... a figura central... o herói" | "o protagonista" (repetir quando for mais claro) |
+| 12 | **Faixas falsas** | "do Big Bang à matéria escura" | Listar os tópicos diretamente |
 
-### Communication Patterns
+### Padrões de estilo
 
-| # | Pattern | Before | After |
-|---|---------|--------|-------|
-| 19 | **Chatbot artifacts** | "I hope this helps! Let me know if..." | Remove entirely |
-| 20 | **Cutoff disclaimers** | "While details are limited in available sources..." | Find sources or remove |
-| 21 | **Sycophantic tone** | "Great question! You're absolutely right!" | Respond directly |
+| # | Padrão | Antes | Depois |
+|---|--------|-------|--------|
+| 13 | **Uso excessivo de travessão** | "instituições — não pelo povo — mesmo assim continua —" | Usar vírgulas ou pontos |
+| 14 | **Uso excessivo de negrito** | "**OKRs**, **KPIs**, **BMC**" | "OKRs, KPIs, BMC" |
+| 15 | **Listas verticais com cabeçalho inline** | "**Performance:** A performance foi aprimorada" | Converter em prosa |
+| 16 | **Capitalização de títulos** | "Negociações Estratégicas E Parcerias Globais" | "Negociações estratégicas e parcerias globais" |
+| 17 | **Emojis** | "🚀 Fase de lançamento: 💡 Insight principal:" | Remover emojis |
+| 18 | **Aspas tipográficas** | `disse \u201co projeto está no prazo\u201d` | `disse "o projeto está no prazo"` |
+| 25 | **Uso excessivo de palavras compostas** | "multifuncional, orientado a dados, voltado ao cliente" | Simplificar construções compostas |
 
-### Filler and Hedging
+### Padrões de comunicação
 
-| # | Pattern | Before | After |
-|---|---------|--------|-------|
-| 22 | **Filler phrases** | "In order to", "Due to the fact that" | "To", "Because" |
-| 23 | **Excessive hedging** | "could potentially possibly" | "may" |
-| 24 | **Generic conclusions** | "The future looks bright" | Specific plans or facts |
+| # | Padrão | Antes | Depois |
+|---|--------|-------|--------|
+| 19 | **Artefatos de conversa** | "Espero que isso ajude! Me avise se..." | Remover completamente |
+| 20 | **Disclaimers de corte de conhecimento** | "Embora detalhes específicos sejam limitados..." | Buscar fontes ou remover |
+| 21 | **Tom bajulador** | "Ótima pergunta! Você está absolutamente certo!" | Responder diretamente |
 
-## Full Example
+### Enchimento e atenuação
 
-**Before (AI-sounding):**
-> Great question! Here is an essay on this topic. I hope this helps!
+| # | Padrão | Antes | Depois |
+|---|--------|-------|--------|
+| 22 | **Frases de enchimento** | "Com o objetivo de", "Devido ao fato de que" | "Para", "Porque" |
+| 23 | **Atenuação excessiva** | "poderia potencialmente talvez" | "pode" |
+| 24 | **Conclusões genéricas positivas** | "O futuro é promissor" | Planos ou fatos específicos |
+
+## Exemplo completo
+
+**Antes (com cara de IA):**
+> Ótima pergunta! Aqui está um ensaio sobre este tema. Espero que ajude!
 >
-> AI-assisted coding serves as an enduring testament to the transformative potential of large language models, marking a pivotal moment in the evolution of software development. In today's rapidly evolving technological landscape, these groundbreaking tools—nestled at the intersection of research and practice—are reshaping how engineers ideate, iterate, and deliver, underscoring their vital role in modern workflows.
+> A codificação assistida por IA serve como um testemunho duradouro do potencial transformador dos grandes modelos de linguagem, marcando um momento crucial na evolução do desenvolvimento de software. No cenário tecnológico em rápida evolução de hoje, essas ferramentas revolucionárias — aninhadas na interseção entre pesquisa e prática — estão remodelando a forma como os engenheiros idealizam, iteram e entregam, ressaltando seu papel vital nos fluxos de trabalho modernos.
 >
-> At its core, the value proposition is clear: streamlining processes, enhancing collaboration, and fostering alignment. It's not just about autocomplete; it's about unlocking creativity at scale, ensuring that organizations can remain agile while delivering seamless, intuitive, and powerful experiences to users. The tool serves as a catalyst. The assistant functions as a partner. The system stands as a foundation for innovation.
+> Em sua essência, a proposta de valor é clara: otimizar processos, aprimorar a colaboração e fomentar o alinhamento. Não se trata apenas de autocompletar; trata-se de liberar a criatividade em escala, garantindo que as organizações permaneçam ágeis enquanto entregam experiências fluidas, intuitivas e poderosas aos usuários. A ferramenta funciona como um catalisador. O assistente serve como um parceiro. O sistema se estabelece como uma base para a inovação.
 >
-> Industry observers have noted that adoption has accelerated from hobbyist experiments to enterprise-wide rollouts, from solo developers to cross-functional teams. The technology has been featured in The New York Times, Wired, and The Verge. Additionally, the ability to generate documentation, tests, and refactors showcases how AI can contribute to better outcomes, highlighting the intricate interplay between automation and human judgment.
+> Observadores do setor notaram que a adoção acelerou de experimentos de entusiastas para implementações corporativas, de desenvolvedores solo para equipes multifuncionais. A tecnologia foi destaque no The New York Times, Wired e The Verge. Ademais, a capacidade de gerar documentação, testes e refatorações evidencia como a IA pode contribuir para melhores resultados, destacando a intrincada interação entre automação e julgamento humano.
 >
-> - 💡 **Speed:** Code generation is significantly faster, reducing friction and empowering developers.
-> - 🚀 **Quality:** Output quality has been enhanced through improved training, contributing to higher standards.
-> - ✅ **Adoption:** Usage continues to grow, reflecting broader industry trends.
+> - 💡 **Velocidade:** A geração de código é significativamente mais rápida, reduzindo atrito e empoderando desenvolvedores.
+> - 🚀 **Qualidade:** A qualidade do output foi aprimorada por meio de treinamento otimizado, contribuindo para padrões mais altos.
+> - ✅ **Adoção:** O uso continua a crescer, refletindo tendências mais amplas do setor.
 >
-> While specific details are limited based on available information, it could potentially be argued that these tools might have some positive effect. Despite challenges typical of emerging technologies—including hallucinations, bias, and accountability—the ecosystem continues to thrive. In order to fully realize this potential, teams must align with best practices.
+> Embora detalhes específicos sejam limitados com base nas informações disponíveis, poderia potencialmente ser argumentado que essas ferramentas podem ter algum efeito positivo. Apesar dos desafios típicos de tecnologias emergentes — incluindo alucinações, viés e responsabilidade — o ecossistema continua a prosperar. Com o objetivo de realizar plenamente esse potencial, as equipes devem se alinhar às melhores práticas.
 >
-> In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you’d like me to expand on any section!
+> Em conclusão, o futuro é promissor. Tempos empolgantes nos aguardam enquanto continuamos essa jornada rumo à excelência. Me avise se quiser que eu expanda alguma seção!
 
-**After (Humanized):**
-> AI coding assistants can speed up the boring parts of the job. They're great at boilerplate: config files and the little glue code you don't want to write. They can also help you sketch a test, but you still have to read it.
+**Depois (humanizado):**
+> Assistentes de código com IA aceleram as partes chatas do trabalho. São bons com boilerplate: arquivos de configuração, scaffolding de testes, refatorações repetitivas. Também são bons em parecer corretos quando estão errados.
 >
-> The dangerous part is how confident the suggestions look. I've accepted code that compiled and passed lint, then discovered later it missed the point because I stopped paying attention.
+> Já aceitei sugestões que compilaram, passaram no lint e mesmo assim erraram o ponto porque eu parei de prestar atenção.
 >
-> If you treat it like autocomplete and review every line, it's useful. If you use it to avoid thinking, it will help you ship bugs faster.
+> As pessoas que conheço se dividem em dois grupos. Alguns usam como autocomplete para tarefas chatas e revisam cada linha. Outros desativam depois que a ferramenta insiste em sugerir padrões que eles não querem. Os dois lados fazem sentido.
 >
-> The only real backstop is tests. Without them, you're mostly judging vibes.
+> As métricas de produtividade são escorregadias. O GitHub diz que usuários do Copilot "aceitam 30% das sugestões", mas aceitar não é acertar, e acertar não é gerar valor. Se você não tem testes, está basicamente chutando.
 
-## References
+## Referências
 
-- [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) - Primary source
-- [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) - Maintaining organization
+- [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) - Fonte primária
+- [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) - Organização mantenedora
 
-## Version History
+## Histórico de versões
 
-- **2.3.0** - Added pattern #25: hyphenated word pair overuse
-- **2.2.0** - Added a final "obviously AI generated" audit + second-pass rewrite prompts
-- **2.1.1** - Fixed pattern #18 example (curly quotes vs straight quotes)
-- **2.1.0** - Added before/after examples for all 24 patterns
-- **2.0.0** - Complete rewrite based on raw Wikipedia article content
-- **1.0.0** - Initial release
+- **3.0.0** - Tradução completa para português brasileiro (fork do [humanizer](https://github.com/blader/humanizer))
+- **2.3.0** - Adicionado padrão #25: uso excessivo de palavras hifenizadas
+- **2.2.0** - Adicionada auditoria final "obviamente gerado por IA" + prompts de segunda passagem
+- **2.1.1** - Corrigido exemplo do padrão #18 (aspas tipográficas vs retas)
+- **2.1.0** - Adicionados exemplos antes/depois para todos os 24 padrões
+- **2.0.0** - Reescrita completa baseada no conteúdo bruto do artigo da Wikipédia
+- **1.0.0** - Lançamento inicial
 
-## License
+## Licença
 
 MIT

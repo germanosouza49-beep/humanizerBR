@@ -1,53 +1,53 @@
 # WARP.md
 
-This file provides guidance to WARP (warp.dev) when working with code in this repository.
+Este arquivo fornece orientações ao WARP (warp.dev) ao trabalhar com código neste repositório.
 
-## What this repo is
-This repository is a **Claude Code skill** implemented entirely as Markdown.
+## O que é este repositório
+Este repositório é uma **skill do Claude Code** implementada inteiramente em Markdown.
 
-The “runtime” artifact is `SKILL.md`: Claude Code reads the YAML frontmatter (metadata + allowed tools) and the prompt/instructions that follow.
+O artefato principal é `SKILL.md`: o Claude Code lê o frontmatter YAML (metadados + ferramentas permitidas) e as instruções que vêm em seguida.
 
-`README.md` is for humans: installation, usage, and a compact overview of the patterns.
+`README.md` é para humanos: instalação, uso e uma visão geral dos padrões detectados.
 
-## Key files (and how they relate)
+## Arquivos principais (e como se relacionam)
 - `SKILL.md`
-  - The actual skill definition.
-  - Starts with YAML frontmatter (`---` … `---`) containing `name`, `version`, `description`, and `allowed-tools`.
-  - After the frontmatter is the editor prompt: the canonical, detailed pattern list with examples.
+  - A definição da skill propriamente dita.
+  - Começa com frontmatter YAML (`---` … `---`) contendo `name`, `version`, `description` e `allowed-tools`.
+  - Após o frontmatter vem o prompt do editor: a lista canônica e detalhada de padrões com exemplos.
 - `README.md`
-  - Installation and usage instructions.
-  - Contains a summarized “24 patterns” table and a short version history.
+  - Instruções de instalação e uso.
+  - Contém uma tabela resumida dos "25 padrões" e um breve histórico de versões.
 
-When changing behavior/content, treat `SKILL.md` as the source of truth, and update `README.md` to stay consistent.
+Ao alterar comportamento/conteúdo, trate `SKILL.md` como a fonte da verdade e atualize `README.md` para manter a consistência.
 
-## Common commands
-### Install the skill into Claude Code
-Recommended (clone directly into Claude Code skills directory):
+## Comandos comuns
+### Instalar a skill no Claude Code
+Recomendado (clonar diretamente no diretório de skills do Claude Code):
 ```bash
 mkdir -p ~/.claude/skills
-git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
+git clone https://github.com/germanosouza49-beep/humanizerBR.git ~/.claude/skills/humanizerBR
 ```
 
-Manual install/update (only the skill file):
+Instalação/atualização manual (apenas o arquivo da skill):
 ```bash
-mkdir -p ~/.claude/skills/humanizer
-cp SKILL.md ~/.claude/skills/humanizer/
+mkdir -p ~/.claude/skills/humanizerBR
+cp SKILL.md ~/.claude/skills/humanizerBR/
 ```
 
-## How to “run” it (Claude Code)
-Invoke the skill:
-- `/humanizer` then paste text
+## Como "executar" (Claude Code)
+Invoque a skill:
+- `/humanizerBR` e depois cole o texto
 
-## Making changes safely
-### Versioning (keep in sync)
-- `SKILL.md` has a `version:` field in its YAML frontmatter.
-- `README.md` has a “Version History” section.
+## Fazendo alterações com segurança
+### Versionamento (manter sincronizado)
+- `SKILL.md` tem um campo `version:` no frontmatter YAML.
+- `README.md` tem uma seção "Histórico de versões".
 
-If you bump the version, update both.
+Se você alterar a versão, atualize ambos.
 
-### Editing `SKILL.md`
-- Preserve valid YAML frontmatter formatting and indentation.
-- Keep the pattern numbering stable unless you’re intentionally re-numbering (since the README table and examples reference the same numbering).
+### Editando `SKILL.md`
+- Preserve a formatação e indentação válidas do frontmatter YAML.
+- Mantenha a numeração dos padrões estável, a menos que esteja renumerando intencionalmente (já que a tabela do README e os exemplos referenciam a mesma numeração).
 
-### Documenting non-obvious fixes
-If you change the prompt to handle a tricky failure mode (e.g., a repeated mis-edit or an unexpected tone shift), add a short note to `README.md`’s version history describing what was fixed and why.
+### Documentando correções não óbvias
+Se você alterar o prompt para lidar com um modo de falha complicado (ex.: uma edição incorreta repetida ou uma mudança inesperada de tom), adicione uma nota breve ao histórico de versões do `README.md` descrevendo o que foi corrigido e por quê.
