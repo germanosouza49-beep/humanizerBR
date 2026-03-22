@@ -1,13 +1,15 @@
 ---
 name: humanizerBR
-version: 3.0.0
+version: 3.1.0
 description: |
   Remove sinais de escrita gerada por IA em textos em português. Use ao editar ou
   revisar textos para torná-los mais naturais e com tom humano. Baseada no guia
-  abrangente "Signs of AI writing" da Wikipédia. Detecta e corrige padrões como:
-  inflação de importância, linguagem promocional, análises superficiais com gerúndio,
-  atribuições vagas, uso excessivo de travessão, regra de três, vocabulário típico de IA,
-  paralelismos negativos e frases conjuntivas excessivas.
+  "Signs of AI writing" da Wikipédia, com regras adicionais para PT-BR. Detecta e
+  corrige 31 padrões: inflação de importância, linguagem promocional, gerúndios
+  superficiais, atribuições vagas, travessão excessivo, regra de três, vocabulário de IA,
+  paralelismos negativos, aberturas formulaicas, conectivos acadêmicos mecânicos,
+  anglicismos, vocabulário aspiracional vago, névoa emocional, e problemas de
+  estrutura e substância.
 allowed-tools:
   - Read
   - Write
@@ -70,7 +72,7 @@ Evitar padrões de IA é só metade do trabalho. Escrita estéril e sem voz é t
 
 ### 1. Ênfase indevida em importância, legado e tendências amplas
 
-**Palavras para vigiar:** funciona/serve como, é um testemunho/lembrete de, papel vital/significativo/crucial/fundamental/determinante, ressalta/destaca sua importância/relevância, reflete tendências mais amplas, simbolizando seu/sua duradouro(a)/permanente, contribuindo para, preparando o terreno para, marcando/moldando, representa/marca uma mudança, ponto de virada, cenário em evolução, ponto focal, marca indelével, profundamente enraizado
+**Palavras para vigiar:** funciona/serve como, é um testemunho/lembrete de, papel vital/significativo/crucial/fundamental/determinante, ressalta/destaca sua importância/relevância, reflete tendências mais amplas, simbolizando seu/sua duradouro(a)/permanente, contribuindo para, preparando o terreno para, marcando/moldando, representa/marca uma mudança, ponto de virada, cenário em evolução, ponto focal, marca indelével, profundamente enraizado, marco (como intensificador vago: "um marco para o setor"), legado/impacto/transformação/eternizar (como encerramento dramático), "É por isso que X é tão importante"
 
 **Problema:** A escrita de LLMs infla a importância adicionando declarações sobre como aspectos arbitrários representam ou contribuem para um tema mais amplo.
 
@@ -109,7 +111,7 @@ Evitar padrões de IA é só metade do trabalho. Escrita estéril e sem voz é t
 
 ### 4. Linguagem promocional e publicitária
 
-**Palavras para vigiar:** ostenta, vibrante, rico(a) (figurado), profundo(a), aprimorando, evidenciando, exemplifica, compromisso com, beleza natural, aninhado(a), no coração de, revolucionário(a) (figurado), renomado(a), deslumbrante, imperdível, impressionante
+**Palavras para vigiar:** ostenta, vibrante, rico(a) (figurado), profundo(a), aprimorando, evidenciando, exemplifica, compromisso com, beleza natural, aninhado(a), no coração de, revolucionário(a) (figurado), renomado(a), deslumbrante, imperdível, impressionante, transformador, poderoso, meticuloso, robusto, abrangente, fluido (como adjetivos inflados), sem precedentes, como nunca antes
 
 **Problema:** LLMs têm sérios problemas em manter um tom neutro, especialmente em tópicos de "patrimônio cultural".
 
@@ -150,7 +152,7 @@ Evitar padrões de IA é só metade do trabalho. Escrita estéril e sem voz é t
 
 ### 7. Vocabulário de IA superutilizado
 
-**Palavras de alta frequência em IA:** Ademais, alinhar-se com, crucial, adentrar/aprofundar, enfatizando, duradouro, aprimorar, fomentar, angariar, destacar (verbo), interação, intrincado/complexidades, fundamental (adjetivo), panorama/cenário (substantivo abstrato), determinante, evidenciar, tapeçaria (substantivo abstrato), testemunho, ressaltar (verbo), valioso, vibrante
+**Palavras de alta frequência em IA:** Ademais, alinhar-se com, crucial, adentrar/aprofundar, enfatizando, duradouro, aprimorar, fomentar, angariar, destacar (verbo), interação, intrincado/complexidades, fundamental (adjetivo), panorama/cenário (substantivo abstrato), determinante, evidenciar, tapeçaria (substantivo abstrato), testemunho, ressaltar (verbo), valioso, vibrante, alavancar, holístico, orgânico, ecossistema, paradigma, otimizar (de forma vaga), capitalizar, impulsionar, catalisar (sem sujeito e objeto precisos), desvendar, desbloquear, mergulhar (no sentido figurado), abraçar (no sentido de aceitar uma ideia)
 
 **Problema:** Essas palavras aparecem com frequência muito maior em textos pós-2023. Frequentemente co-ocorrem.
 
@@ -174,12 +176,14 @@ Evitar padrões de IA é só metade do trabalho. Escrita estéril e sem voz é t
 > O MASP é o principal espaço expositivo de arte moderna de São Paulo. O museu tem quatro andares e mais de 11.000 obras no acervo.
 
 
-### 9. Paralelismos negativos
+### 9. Paralelismos negativos e fórmulas de contraste
 
-**Problema:** Construções como "Não se trata apenas de... mas também..." ou "Não é simplesmente..., é..." são superutilizadas.
+**Palavras para vigiar:** "Não se trata apenas de... mas também...", "Não é simplesmente..., é...", "É mais do que [X], é [Y]", "O que era [X], agora é [Y]", "Claro que [X]... mas [Y]" (apenas para simular equilíbrio sem acrescentar nada)
+
+**Problema:** Construções de contraste artificial são superutilizadas por IAs para criar falsa profundidade.
 
 **Antes:**
-> Não se trata apenas da batida sob os vocais; é parte da agressividade e da atmosfera. Não é meramente uma música, é uma declaração.
+> Não se trata apenas da batida sob os vocais; é parte da agressividade e da atmosfera. Não é meramente uma música, é uma declaração. É mais do que um álbum, é um manifesto.
 
 **Depois:**
 > A batida pesada reforça o tom agressivo.
@@ -340,6 +344,10 @@ Evitar padrões de IA é só metade do trabalho. Escrita estéril e sem voz é t
 - "No caso de você precisar de ajuda" → "Se precisar de ajuda"
 - "O sistema possui a capacidade de processar" → "O sistema pode processar"
 - "É importante observar que os dados mostram" → "Os dados mostram"
+- "Vou direto ao ponto" / "Sem rodeios" / "Sem mais delongas" → Remover e ir direto ao ponto de fato
+- "No mundo acelerado de hoje" / "Na era digital" / "Em um mundo onde" → Remover completamente
+- "Como era de se esperar" / "Como esperado" / "Naturalmente" → Remover ou conectar os eventos diretamente
+- "Nada mais é do que" / "Nada menos do que" → Simplificar
 
 
 ### 23. Atenuação excessiva
@@ -353,9 +361,11 @@ Evitar padrões de IA é só metade do trabalho. Escrita estéril e sem voz é t
 > A política pode afetar os resultados.
 
 
-### 24. Conclusões genéricas positivas
+### 24. Conclusões genéricas positivas e fechamentos dramáticos
 
-**Problema:** Finais vagamente otimistas.
+**Palavras para vigiar:** "O futuro é promissor", "Tempos empolgantes nos aguardam", "Isso muda tudo", "E aqui está a verdade", "E isso é ouro", legado, impacto, transformação, gesto, eternizar
+
+**Problema:** Finais vagamente otimistas ou dramatizados. NUNCA repita no parágrafo final o que já foi dito — termine no ápice, sem resumo.
 
 **Antes:**
 > O futuro é promissor para a empresa. Tempos empolgantes nos aguardam enquanto continuam sua jornada rumo à excelência. Isso representa um grande passo na direção certa.
@@ -375,6 +385,110 @@ Evitar padrões de IA é só metade do trabalho. Escrita estéril e sem voz é t
 
 **Depois:**
 > A equipe entregou um relatório baseado em dados sobre nossas ferramentas para clientes. O processo de decisão deles era conhecido por ser minucioso e atento aos detalhes.
+
+
+### 26. Aberturas formulaicas e suspense artificial
+
+**Palavras para vigiar:** "Imagine que...", "Pense comigo:", "E se eu te dissesse que...", "Você já se perguntou por que...?", "A solução?", "O resultado?", "A virada?"
+
+**Problema:** IAs abrem textos com ganchos retóricos baratos ou criam suspense artificial com frases isoladas de uma palavra seguida de interrogação. Perguntas retóricas no início de seções são outro sinal forte.
+
+**Antes:**
+> Imagine que você pudesse dobrar sua produtividade. Pense comigo: e se existisse uma ferramenta que fizesse isso por você? A solução? Inteligência artificial.
+
+**Depois:**
+> Ferramentas de IA podem acelerar tarefas repetitivas, mas não substituem decisões de design.
+
+
+### 27. Conectivos e transições de IA em português
+
+**Palavras para vigiar:**
+- Abertura de parágrafo: Além disso / Por outro lado / Contudo / Todavia / De fato / Com efeito
+- Falsa importância: Vale ressaltar / Cabe destacar / É importante frisar / É fundamental compreender
+- Fechamento e síntese: Em suma / Em síntese / Dito isso / Posto isso / Nesse sentido / Nessa perspectiva
+- Falsa causalidade: Não é à toa que / Não por acaso / E não é coincidência / Cada vez mais
+- Reforço vazio: Notavelmente / Significativamente / Indubitavelmente
+- Falsa abrangência: Seja [X], seja [Y]
+
+**Problema:** LLMs em português usam conectivos acadêmicos e transições formais de forma mecânica para simular coesão textual. Humanos raramente empilham esses conectivos com tanta regularidade.
+
+**Antes:**
+> Além disso, vale ressaltar que a empresa tem investido em inovação. Contudo, cabe destacar que os resultados ainda são incipientes. Nesse sentido, é fundamental compreender que o processo demanda tempo. Em suma, o cenário é promissor.
+
+**Depois:**
+> A empresa tem investido em inovação, mas os resultados ainda são incipientes. O processo demanda tempo.
+
+
+### 28. Anglicismos e jargão corporativo vazio
+
+**Palavras proibidas:** mindset, approach, overview, insight, framework, branding, storytelling, positioning, upgrade, boost, shift, breakthrough, entregável, escalar (no sentido corporativo vago), gamechanger, virar o jogo, no fim do dia
+
+**Problema:** IAs inserem anglicismos e jargão corporativo para simular autoridade. Quando existe equivalente direto em português, use-o. Quando o anglicismo é impreciso, substitua pela descrição concreta do que se quer dizer.
+
+**Antes:**
+> O mindset da equipe mudou. O novo approach trouxe um breakthrough no branding, escalando o storytelling da marca. No fim do dia, foi um gamechanger.
+
+**Depois:**
+> A equipe mudou a forma de trabalhar. A nova estratégia de comunicação aumentou o reconhecimento da marca em 40% no trimestre.
+
+
+### 29. Vocabulário aspiracional vago e metáforas batidas
+
+**Palavras para vigiar:**
+- Aspiracional vago: propósito, presença, essência, autenticidade, abundância, florescimento, despertar, potencial, comunidade (quando usados de forma vaga e genérica)
+- Metáforas batidas: jornada, caminho, trilha (como metáforas de desenvolvimento pessoal), navegar (como metáfora de negócio: "navegar os desafios", "navegar esse cenário")
+- Palavras-tapete: experiência, estratégia, intenção (quando usadas sem conteúdo real por trás)
+
+**Problema:** IAs preenchem textos com palavras que soam profundas mas não dizem nada concreto. "Jornada", "propósito" e "autenticidade" viraram ruído.
+
+**Antes:**
+> Essa jornada de autoconhecimento despertou seu verdadeiro propósito. Com autenticidade e presença, ela navegou os desafios e encontrou sua essência, florescendo em abundância.
+
+**Depois:**
+> Depois de dois anos em terapia, ela pediu demissão e abriu uma confeitaria. Vai bem: fatura R$ 15 mil por mês.
+
+
+### 30. Névoa emocional e agência transferida ao destino
+
+**Palavras para vigiar:** "energia inexplicável", "tensão palpável", "O universo conspirou", "O destino tinha outros planos", "invisível", "ruído", "silencioso" (para descrever algo oculto ou perigoso)
+
+**Problema:** IAs substituem descrições concretas por névoa emocional vaga, ou transferem agência para forças místicas em vez de descrever o que realmente aconteceu.
+
+**Antes:**
+> Uma energia inexplicável tomou conta da sala. O universo havia conspirado para que aquele encontro acontecesse. Uma tensão palpável se instalou, e o silencioso perigo que espreitava tornou-se impossível de ignorar.
+
+**Depois:**
+> Quando ela entrou na sala, a conversa parou. Ninguém esperava que ela viesse. O gerente, que tinha acabado de criticá-la na reunião, ficou visivelmente sem graça.
+
+
+### 31. Problemas de estrutura e substância
+
+**Regras:**
+- NUNCA inicie 3+ parágrafos seguidos com a mesma palavra ou estrutura
+- NUNCA empilhe adjetivos: escolha um substantivo preciso ou nenhum adjetivo
+- NUNCA use superlativo sem evidência: "o melhor", "o único", "o mais completo"
+- NUNCA use voz passiva sem sujeito: assuma responsabilidade narrativa ("foi decidido" → "a diretoria decidiu")
+- NUNCA explique com outras palavras o que acabou de ser dito logo em seguida (paráfrase imediata)
+- NUNCA produza texto uniformemente positivo: fricção e ambiguidade são marcas de pensamento real
+- NUNCA declare emoções, evoque-as ("isso é inspirador" → escreva algo que inspire)
+- NUNCA preencha ausência de conteúdo com generalidades: o silêncio é melhor que o ruído
+- NUNCA escreva texto que possa descrever qualquer produto de qualquer mercado: seja específico
+- NUNCA use títulos genéricos: "Introdução", "Conclusão", "Por que isso importa", "Próximos passos"
+- NUNCA crie bullet points com itens de uma só palavra ou jargão sem descrição
+
+**Problema:** Esses são problemas estruturais que, isolados, parecem menores, mas em conjunto denunciam texto gerado por IA. O denominador comum é a falta de especificidade e de comprometimento com uma posição.
+
+**Antes:**
+> **Introdução**
+>
+> A solução é inovadora, robusta e transformadora. A plataforma foi projetada para entregar resultados. Os resultados foram alcançados. Isso é verdadeiramente inspirador.
+>
+> **Conclusão**
+>
+> Em outras palavras, a plataforma entrega valor. Ou seja, os resultados são positivos.
+
+**Depois:**
+> A plataforma reduziu o tempo de processamento de pedidos de 4 horas para 20 minutos no primeiro mês. Três clientes cancelaram no período porque a migração quebrou integrações com seus ERPs — um problema que a equipe ainda está resolvendo.
 
 ---
 

@@ -46,7 +46,7 @@ A skill também inclui uma passagem final de auditoria "obviamente gerado por IA
 
 > "LLMs usam algoritmos estatísticos para adivinhar o que deve vir a seguir. O resultado tende ao resultado estatisticamente mais provável que se aplica à maior variedade de casos."
 
-## 25 Padrões detectados (com exemplos Antes/Depois)
+## 31 Padrões detectados (com exemplos Antes/Depois)
 
 ### Padrões de conteúdo
 
@@ -96,7 +96,18 @@ A skill também inclui uma passagem final de auditoria "obviamente gerado por IA
 |---|--------|-------|--------|
 | 22 | **Frases de enchimento** | "Com o objetivo de", "Devido ao fato de que" | "Para", "Porque" |
 | 23 | **Atenuação excessiva** | "poderia potencialmente talvez" | "pode" |
-| 24 | **Conclusões genéricas positivas** | "O futuro é promissor" | Planos ou fatos específicos |
+| 24 | **Conclusões genéricas e fechamentos dramáticos** | "O futuro é promissor", "Isso muda tudo" | Planos ou fatos específicos |
+
+### Padrões adicionais PT-BR
+
+| # | Padrão | Antes | Depois |
+|---|--------|-------|--------|
+| 26 | **Aberturas formulaicas e suspense artificial** | "Imagine que...", "A solução?", "Você já se perguntou...?" | Ir direto ao ponto |
+| 27 | **Conectivos e transições de IA** | "Além disso, vale ressaltar... Contudo, cabe destacar... Em suma" | Conectar ideias naturalmente ou remover |
+| 28 | **Anglicismos e jargão corporativo** | "O mindset mudou, o approach trouxe um breakthrough" | "A equipe mudou a forma de trabalhar" |
+| 29 | **Vocabulário aspiracional vago** | "jornada de propósito, essência, autenticidade, florescimento" | Descrever o que realmente aconteceu |
+| 30 | **Névoa emocional e agência mística** | "energia inexplicável", "O universo conspirou" | Descrever a cena concretamente |
+| 31 | **Problemas de estrutura e substância** | Adjetivos empilhados, voz passiva sem sujeito, paráfrase imediata, títulos genéricos | Substantivos precisos, sujeitos explícitos, especificidade |
 
 ## Exemplo completo
 
@@ -133,6 +144,7 @@ A skill também inclui uma passagem final de auditoria "obviamente gerado por IA
 
 ## Histórico de versões
 
+- **3.1.0** - Adicionados 6 novos padrões PT-BR (#26-#31): aberturas formulaicas, conectivos de IA, anglicismos, vocabulário aspiracional, névoa emocional, problemas de estrutura; expandidos padrões existentes
 - **3.0.0** - Tradução completa para português brasileiro (fork do [humanizer](https://github.com/blader/humanizer))
 - **2.3.0** - Adicionado padrão #25: uso excessivo de palavras hifenizadas
 - **2.2.0** - Adicionada auditoria final "obviamente gerado por IA" + prompts de segunda passagem
